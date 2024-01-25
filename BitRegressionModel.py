@@ -128,13 +128,13 @@ class Demucs(nn.Module):
         #BIT REGRESSION ADAPTATION
         ##########################
         factor = 40960//kernel_out
-        self.output_bit = nn.Conv1d(self.chin, self.n_bits//factor, kernel_size=self.kernel_out, stride=self.kernel_out)
+        self.output_bit = nn.Conv1d(self.chout, self.n_bits//factor, kernel_size=self.kernel_out, stride=self.kernel_out)
         ##########################
                      
         #BIT REGRESSION ADAPTATION v2 - 2 layer FCN
         ##########################
         factor = 40960//kernel_out
-        self.output_bit1 = nn.Conv1d(self.chin, self.kernel_out, kernel_size=self.kernel_out, stride=self.kernel_out)
+        self.output_bit1 = nn.Conv1d(self.chout, self.kernel_out, kernel_size=self.kernel_out, stride=self.kernel_out)
         self.output_bit2 = nn.Conv1d(1, self.n_bits//factor, kernel_size=self.kernel_out, stride=self.kernel_out)
         ##########################
 
