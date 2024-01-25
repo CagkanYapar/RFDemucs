@@ -230,10 +230,10 @@ class Demucs(nn.Module):
         #BIT REGRESSION ADAPTATION v2 - 2 layer FCN
         ##########################
         x11 = self.output_bit11(x)
-        flattened_x11 = torch.flatten(torch.transpose(x11,1,2), start_dim=1) #B x C x H to B x CH as if dense layer on blocks of kernel_out
+        flattened_x11 = torch.flatten(torch.transpose(x11,1,2), start_dim=1) 
         x_v2 = torch.unsqueeze(flattened_x11, 1)
         x_v2 = self.output_bit2(x_v2)
-        flattened_x2 = torch.flatten(torch.transpose(x_v2,1,2), start_dim=1) #B x C x H to B x CH as if dense layer on blocks of kernel_out
+        flattened_x2 = torch.flatten(torch.transpose(x_v2,1,2), start_dim=1) 
         x_v2 = flattened_x2
         ##########################
         return std * x
